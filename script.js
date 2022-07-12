@@ -1,112 +1,55 @@
 "use strict";
 
-// Challenge 3
+// Challenge 4
 
-/* let userName = prompt("Nom ?");
-let lowerUserName = userName.toLowerCase();
+const dauphinsScoreMatch1Text = prompt("Match1, score Dauphins ?");
+const dauphinsScoreMatch1 = parseInt(dauphinsScoreMatch1Text);
+const dauphinsScoreMatch2Text = prompt("Match2, score Dauphins ?");
+const dauphinsScoreMatch2 = parseInt(dauphinsScoreMatch2Text);
+const dauphinsScoreMatch3Text = prompt("Match3, score Dauphins ?");
+const dauphinsScoreMatch3 = parseInt(dauphinsScoreMatch3Text);
 
-const accepteNames = ["paul", "antoine"];
+const koalasScoreMatch1Text = prompt("Match1, score Koalas ?");
+const koalasScoreMatch1 = parseInt(koalasScoreMatch1Text);
+const koalasScoreMatch2Text = prompt("Match2, score Koalas ?");
+const koalasScoreMatch2 = parseInt(koalasScoreMatch2Text);
+const koalasScoreMatch3Text = prompt("Match3, score Koalas ?");
+const koalasScoreMatch3 = parseInt(koalasScoreMatch3Text);
 
-if (accepteNames.includes(lowerUserName)) {
-  console.log(`Bonjour, ${userName}`);
-} else {
-  console.log("Go away!");
-}
- */
-
-/* let userName = "Pierre";
-if (userName === "Pierre") {
-  const city = "New York";
-  if (city === "New York") {
-    console.log("Welcome " + userName + " in " + city);
-  } else {
-    console.log("Welcome " + userName);
-  }
-  /// fonctionne correctement à l'intérieur du contexte de la condition
-} else {
-  console.log(userName);
-  /// tu verras s'afficher Pierre
-  console.log(city);
-  /// tu verras une error 'reference error: city is not defined'
-} */
-
-/* let x = 12.2;
-let res = x.toFixed(1) // arrondi à x chiffres après la virgule 1/2
-console.log(Math.ceil(x)); // Ceil: Arrondit à l’entier au dessus.
-console.log(res); // arrondi à x chiffres après la virgule 1/2
-console.log(Math.round(x)); // Round: Arrondit.
-console.log(Math.floor(x)); //Floor: Arrondit à l’entier au dessous.
-console.log(Math.random()); //Random: sort un nombre au hazard entre 0 (inclus) et 1 (exclus). */
-
-const poidsTailleBernard = {
-  nom: "Bernard",
-  poids: 78,
-  taille: 1.69,
-};
-const poidsTailleMarcel = {
-  nom: "Marcel",
-  poids: 92,
-  taille: 1.95,
-};
-
-function imc(poids, taille) {
-  return poids / (taille * taille);
+function scoresAverage(donnée1, donnée2, donnée3) {
+  return (donnée1 + donnée2 + donnée3) / 3;
 }
 
-const bernardImc = imc(
-  poidsTailleBernard.poids,
-  poidsTailleBernard.taille
-).toFixed(2);
-console.log(bernardImc);
+const dauphinsScoresAverage = scoresAverage(
+  dauphinsScoreMatch1,
+  dauphinsScoreMatch2,
+  dauphinsScoreMatch3
+);
+console.log(dauphinsScoresAverage.toFixed(0));
 
-const marcelImc = imc(
-  poidsTailleMarcel.poids,
-  poidsTailleMarcel.taille
-).toFixed(2);
-console.log(marcelImc);
+const koalasScoresAverage = scoresAverage(
+  koalasScoreMatch1,
+  koalasScoreMatch2,
+  koalasScoreMatch3
+);
+console.log(koalasScoresAverage.toFixed(0));
 
-let bernardHigherIMC = false;
-
-/* if (bernardImc > marcelImc) {
-  bernardHigherIMC = true;
-} */
-
-/* console.log(bernardHigherIMC); */
-
-/* let bernardHigherIMC2 = bernardImc > marcelImc ? true : false; */
-/* console.log(bernardHigherIMC2); */
-
-let bernardHigherIMC3 = bernardImc > marcelImc;
-/* console.log(bernardHigherIMC3); */
-/* if (bernardHigherIMC3 === true)  {
-    console.log('Bernard a un IMC plus élevé que Marcel')
+if (dauphinsScoresAverage > koalasScoresAverage) {
+  console.log("Victoire des Dauphins");
+} else if (koalasScoresAverage > dauphinsScoresAverage) {
+  console.log("Victoire des Koalas");
 } else {
-    console.log('Marcel a un IMC plus élevé que Bernard')
-} */
-
-bernardHigherIMC3 ? console.log(`Bernard a un IMC (${bernardImc}) plus élevé que Marcel (${marcelImc})`):console.log(`Marcel a un IMC (${marcelImc}) plus élevé que Bernard (${bernardImc})`);
-
-if (bernardImc <25) {
-    console.log(`${poidsTailleBernard.nom} insuffisance pondérale`)
-} else if (bernardImc <30) {
-    console.log(`${poidsTailleBernard.nom} Poids normal`)
-} else if (bernardImc <35) {
-    console.log(`${poidsTailleBernard.nom} Surpoids`)
-} else if (bernardImc <45) {
-    console.log(`${poidsTailleBernard.nom} Obésité`)
-} else {
-    console.log(`${poidsTailleBernard.nom} Obésité importante`)
+  console.log("Egalité");
 }
 
-if (marcelImc <25) {
-    console.log(`${poidsTailleMarcel.nom} insuffisance pondérale`)
-} else if (marcelImc <30) {
-    console.log(`${poidsTailleMarcel.nom} Poids normal`)
-} else if (marcelImc <35) {
-    console.log(`${poidsTailleMarcel.nom} Surpoids`)
-} else if (marcelImc <45) {
-    console.log(`${poidsTailleMarcel.nom} Obésité`)
+if (dauphinsScoresAverage>100 || koalasScoresAverage>100) {
+    if (dauphinsScoresAverage > koalasScoresAverage) {
+    console.log("Victoire des Dauphins");
+    } else if (koalasScoresAverage > dauphinsScoresAverage) {
+    console.log("Victoire des Koalas");
+    } else {
+    console.log("Egalité");
+    }
 } else {
-    console.log(`${poidsTailleMarcel.nom} Obésité importante`)
+    console.log("Pas de gagnant");
 }
-
