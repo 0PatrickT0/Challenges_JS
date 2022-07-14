@@ -1,161 +1,77 @@
-"use strict";
+// Challenge 10
 
-// Challenge 9
+// Here are our Astro signs provided as a string.
 
-//Exercice 1
+const aries = `♈`,
+  taurus = `♉`,
+  gemini = `♊`,
+  cancer = `♋`,
+  leo = `♌`,
+  virgo = `♍`,
+  libra = `♎`,
+  scorpio = `♏`,
+  sagittarius = `♐`,
+  capricorn = `♑`,
+  aquarius = `♒`,
+  pisces = `♓︎`;
 
-const hiddenMessage = [
-  "X",
-  "X",
-  "X",
-  "X",
-  "W",
-  "X",
-  "E",
-  "X",
-  "X",
-  "X",
-  "X",
-  "X",
-  "L",
-  "X",
-  "X",
-  "X",
-  "X",
-  "X",
-  "X",
-  "X",
-  "X",
-  "X",
-  "X",
-  "X",
-  "X",
-  "X",
-  "X",
-  "X",
-  "X",
-  "X",
-  "X",
-  "X",
-  "X",
-  "L",
-  "X",
-  "X",
-  "X",
-  "X",
-  "X",
-  "X",
-  "X",
-  "X",
-  "X",
-  " ",
-  "X",
-  "X",
-  "X",
-  "X",
-  "X",
-  "X",
-  "X",
-  "X",
-  "D",
-  "X",
-  "X",
-  "X",
-  "X",
-  "X",
-  "X",
-  "X",
-  "X",
-  "X",
-  "X",
-  "X",
-  "X",
-  "X",
-  "X",
-  "X",
-  "X",
-  "X",
-  "X",
-  "X",
-  "X",
-  "X",
-  "X",
-  "X",
-  "X",
-  "X",
-  "X",
-  "X",
-  "X",
-  "X",
-  "X",
-  "X",
-  "X",
-  "X",
-  "O",
-  "X",
-  "X",
-  "X",
-  "X",
-  "X",
-  "X",
-  "N",
-  "X",
-  "X",
-  "X",
-  "X",
-  "E",
-  "X",
-  "X",
-  "X",
-  "X",
-  "X",
-  "X",
-  "X",
-  "X",
-  "X",
-  "X",
-  ",",
-  "X",
-  " ",
-  "X",
-];
-let secretMessage = [];
+// In Western Astrology there are 12 signs, organized by Earth Elements (Eart, Water, Air, Fire)  //
+// You are going to manipulate the following arrays along with this challenge:  //
 
-const decryptMessage = (hiddenMessage) => {
-  if (hiddenMessage != "X") {
-    secretMessage.push(hiddenMessage);
-  }
-};
+const fireSigns = [aries, leo];
+const earthSigns = [taurus, virgo, capricorn, sagittarius];
+const airSigns = [gemini, libra, aquarius];
+const waterSigns = [cancer, scorpio, pisces];
 
-for (let i = 0; i < hiddenMessage.length; i++) {
-  decryptMessage(hiddenMessage[i]);
-}
+/* –––––––––––––––––– */
 
-console.log(secretMessage);
+/*  🏁 Add one final element to an array 
+    
+    Sagittarius is missing from fire signs please add it at the END of the array
+    and verify the result.
 
-// Exercice 2
+*/
 
-const hiddenCode =
-  "XXXXXXXXXXXXXXXXXXXXXXXXXXXCXXXXXXXOXXXXXDXXXXXXXXXXXXXXXEXXXX XXXXXXXXXXXXXXX:X0XXXXXXX2XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX3XXXXXX2XXXXXXXXX2XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX4XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX6XXXXXXXXXXXXXXX6XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX7XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX2XXXXXXXXXX8XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX8XXXXXXXXXXX4XXXXXXXXXXXX6XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX4XXXXXXXXXXXXXXXXXXX9XXXX9XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX2XXX4XXXXXXXXXXX6XXXXXXXXX2XXXXXXXX3XXXXXXXX2XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX4XXXXX";
+// ✒️ Write your code here
+fireSigns.push(sagittarius);
 
-let secretMessageTwo = [];
-let hiddenCodeArray = hiddenCode.split("");
-console.log(hiddenCodeArray);
+console.log(
+  fireSigns[fireSigns.length - 1] === "♐"
+    ? "Good Answer ✅"
+    : "Wrong Answer ❌"
+);
 
-const decryptMessageTwo = (hiddenCodeArray) => {
-  if (
-    hiddenCodeArray != "X" &&
-    hiddenCodeArray != "0" &&
-    hiddenCodeArray != "2" &&
-    hiddenCodeArray != "4" &&
-    hiddenCodeArray != "6" &&
-    hiddenCodeArray != "8"
-  ) {
-    secretMessageTwo.push(hiddenCodeArray);
-  }
-};
 
-for (let i = 0; i < hiddenCodeArray.length; i++) {
-  decryptMessageTwo(hiddenCodeArray[i]);
-}
-console.log(secretMessageTwo);
+/* 🏁 Remove the last element of an array
+
+      Sagittarius should not be on earth Signs, please remove Sagittarius from the array, and verify
+      the result.
+*/
+
+// ✒️ Write your code here
+earthSigns.pop();
+console.log(earthSigns[earthSigns.length - 1] !== "♐" ? "Good Answer ✅" : "Wrong Answer ❌");
+
+/* 
+    🏁  Initialize an empty array in javascript
+     Please initialize an empty array and store it in a let variable called zodiacSigns
+
+ */
+let zodiacSigns = []; // ✒️ Write your code here
+
+/*  
+     🏁 🏁 Merge Fire, Earth, Water, and Air arrays into zodiacSigns (in that order), using the concat methods 
+*/
+
+// ✒️ Write your code here
+zodiacSigns = fireSigns.concat(earthSigns, waterSigns, airSigns);
+console.log(
+  (zodiacSigns !== null && zodiacSigns.toString() === "♈,♌,♐,♉,♍,♑,♋,♏,♓︎,♊,♎,♒")
+    ? "Good Answer ✅"
+    : "Wrong Answer ❌"
+);
+/*  
+    🏁 Please print dynamically in console how many elements you have now in the zodiacSigns array
+ */
+
+console.log(`There is ${zodiacSigns.length} signs in the zodiac`);
