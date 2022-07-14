@@ -1,29 +1,28 @@
 "use strict";
 
-// Challenge 6
+// Challenge 7
 
-const dauphinsScores = [85, 54, 41];
-const koalasScores = [23, 34, 27];
+let bills = [125, 555, 44];
+let tip = 0;
+let billAndTip = 0;
+let tips = [];
+let billsAndTips = [];
 
-const calcAverage = (score1, score2, score3) => (score1 + score2 + score3) / 3;
-
-let dauphinsScoreAverage = calcAverage(
-  dauphinsScores[0],
-  dauphinsScores[1],
-  dauphinsScores[2]
-);
-let koalasScoreAverage = calcAverage(
-  koalasScores[0],
-  koalasScores[1],
-  koalasScores[2]
-);
-
-function checkWinner() {
-  if (dauphinsScoreAverage > koalasScoreAverage) {
-    return `L'équipe dauphins gagne (${dauphinsScoreAverage} vs ${koalasScoreAverage})`;
+const calcTip = (bills) => {
+  if (bills >= 50 && bills <= 300) {
+    tip = bills * 0.15;
   } else {
-    return `L'équipe koalas gagne (${koalasScoreAverage} vs ${dauphinsScoreAverage})`;
+    tip = bills * 0.2;
   }
+  billAndTip = bills + tip;
+  tips.push(tip);
+  billsAndTips.push(billAndTip);
+};
+
+for (let i = 0; i < bills.length; i++) {
+  calcTip(bills[i]);
 }
 
-console.log(checkWinner());
+console.log(bills);
+console.log(tips);
+console.log(billsAndTips);
