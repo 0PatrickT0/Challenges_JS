@@ -1,8 +1,8 @@
 "use strict";
 
-// Challenge 7
+// Challenge 8
 
-let bills = [125, 555, 44];
+let bills = [22, 295, 176, 440, 37, 105, 10, 1100, 86, 52];
 let tip = 0;
 let billAndTip = 0;
 let tips = [];
