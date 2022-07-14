@@ -1,28 +1,161 @@
 "use strict";
 
-// Challenge 8
+// Challenge 9
 
-let bills = [22, 295, 176, 440, 37, 105, 10, 1100, 86, 52];
-let tip = 0;
-let billAndTip = 0;
-let tips = [];
-let billsAndTips = [];
+//Exercice 1
 
-const calcTip = (bills) => {
-  if (bills >= 50 && bills <= 300) {
-    tip = bills * 0.15;
-  } else {
-    tip = bills * 0.2;
+const hiddenMessage = [
+  "X",
+  "X",
+  "X",
+  "X",
+  "W",
+  "X",
+  "E",
+  "X",
+  "X",
+  "X",
+  "X",
+  "X",
+  "L",
+  "X",
+  "X",
+  "X",
+  "X",
+  "X",
+  "X",
+  "X",
+  "X",
+  "X",
+  "X",
+  "X",
+  "X",
+  "X",
+  "X",
+  "X",
+  "X",
+  "X",
+  "X",
+  "X",
+  "X",
+  "L",
+  "X",
+  "X",
+  "X",
+  "X",
+  "X",
+  "X",
+  "X",
+  "X",
+  "X",
+  " ",
+  "X",
+  "X",
+  "X",
+  "X",
+  "X",
+  "X",
+  "X",
+  "X",
+  "D",
+  "X",
+  "X",
+  "X",
+  "X",
+  "X",
+  "X",
+  "X",
+  "X",
+  "X",
+  "X",
+  "X",
+  "X",
+  "X",
+  "X",
+  "X",
+  "X",
+  "X",
+  "X",
+  "X",
+  "X",
+  "X",
+  "X",
+  "X",
+  "X",
+  "X",
+  "X",
+  "X",
+  "X",
+  "X",
+  "X",
+  "X",
+  "X",
+  "X",
+  "O",
+  "X",
+  "X",
+  "X",
+  "X",
+  "X",
+  "X",
+  "N",
+  "X",
+  "X",
+  "X",
+  "X",
+  "E",
+  "X",
+  "X",
+  "X",
+  "X",
+  "X",
+  "X",
+  "X",
+  "X",
+  "X",
+  "X",
+  ",",
+  "X",
+  " ",
+  "X",
+];
+let secretMessage = [];
+
+const decryptMessage = (hiddenMessage) => {
+  if (hiddenMessage != "X") {
+    secretMessage.push(hiddenMessage);
   }
-  billAndTip = bills + tip;
-  tips.push(tip);
-  billsAndTips.push(billAndTip);
 };
 
-for (let i = 0; i < bills.length; i++) {
-  calcTip(bills[i]);
+for (let i = 0; i < hiddenMessage.length; i++) {
+  decryptMessage(hiddenMessage[i]);
 }
 
-console.log(bills);
-console.log(tips);
-console.log(billsAndTips);
+console.log(secretMessage);
+
+// Exercice 2
+
+const hiddenCode =
+  "XXXXXXXXXXXXXXXXXXXXXXXXXXXCXXXXXXXOXXXXXDXXXXXXXXXXXXXXXEXXXX XXXXXXXXXXXXXXX:X0XXXXXXX2XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX3XXXXXX2XXXXXXXXX2XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX4XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX6XXXXXXXXXXXXXXX6XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX7XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX2XXXXXXXXXX8XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX8XXXXXXXXXXX4XXXXXXXXXXXX6XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX4XXXXXXXXXXXXXXXXXXX9XXXX9XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX2XXX4XXXXXXXXXXX6XXXXXXXXX2XXXXXXXX3XXXXXXXX2XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX4XXXXX";
+
+let secretMessageTwo = [];
+let hiddenCodeArray = hiddenCode.split("");
+console.log(hiddenCodeArray);
+
+const decryptMessageTwo = (hiddenCodeArray) => {
+  if (
+    hiddenCodeArray != "X" &&
+    hiddenCodeArray != "0" &&
+    hiddenCodeArray != "2" &&
+    hiddenCodeArray != "4" &&
+    hiddenCodeArray != "6" &&
+    hiddenCodeArray != "8"
+  ) {
+    secretMessageTwo.push(hiddenCodeArray);
+  }
+};
+
+for (let i = 0; i < hiddenCodeArray.length; i++) {
+  decryptMessageTwo(hiddenCodeArray[i]);
+}
+console.log(secretMessageTwo);
